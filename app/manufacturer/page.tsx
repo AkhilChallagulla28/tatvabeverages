@@ -21,7 +21,7 @@ export default function ManufacturerPage() {
 
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               M/s <span className="font-semibold text-foreground">
-              Kottapalem Beverages Private Limited
+              Bhanu Agro Foods
               </span>{" "}
               is our trusted manufacturing partner, bringing years of expertise
               and operational excellence to every bottle we produce.
@@ -36,18 +36,15 @@ export default function ManufacturerPage() {
             <div className="grid md:grid-cols-2 gap-12 items-start">
 
               {/* LEFT CONTENT */}
-              <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+              <div className="mt-8 md:mt-4 space-y-6 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Established in <span className="font-semibold text-foreground">2017</span>,
-                  Kottapalem Beverages has built a strong reputation in the beverage
-                  manufacturing industry through consistent quality, structured
-                  systems, and continuous innovation.
+                  Bhanu Agro Foods has built its reputation by doing the basics exceptionally well—consistent quality, strong systems, and a constant drive to improve. 
+                  Over the years, this focus has made it a trusted name in beverage manufacturing, known for reliability and attention to detail.
                 </p>
 
                 <p>
                   As an <span className="font-semibold text-foreground">ISO 9001:2015 certified</span> facility,
-                  they follow internationally recognized standards in production,
-                  quality control, and safety protocols.
+                  every step of the process is guided by globally recognized quality and safety standards, ensuring that what leaves the plant is dependable, compliant, and carefully crafted.
                 </p>
 
                 <p>
@@ -65,11 +62,10 @@ export default function ManufacturerPage() {
                     <Factory className="h-8 w-8 text-sky-700 shrink-0" />
                     <div>
                       <h3 className="text-xl font-bold text-primary">
-                        Manufacturing Facility
+                        FSSAI License Number
                       </h3>
                       <p className="mt-2 text-muted-foreground">
-                        State-of-the-art infrastructure equipped with advanced
-                        purification and bottling technology.
+                        13625034000251
                       </p>
                     </div>
                   </div>
@@ -120,7 +116,7 @@ export default function ManufacturerPage() {
             </h2>
 
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Together, Tatva and Kottapalem Beverages ensure that every bottle
+              Together, Tatva and Bhanu Agro Foods ensure that every bottle
               reaching you reflects precision manufacturing, regulatory
               compliance, and uncompromising purity.
             </p>
