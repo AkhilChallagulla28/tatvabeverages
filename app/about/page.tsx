@@ -62,40 +62,33 @@ export default function AboutPage() {
                   </span>
                 </div>
 
-                {/* CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/quote"
-                    className="px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center"
-                  >
-                    Request Quote
-                  </Link>
-
+                {/* CTA - UPDATED: Only Request Quote button that redirects to WhatsApp */}
+                <div className="mt-8">
                   <Link
                     href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20pricing%20and%20MOQ."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-7 py-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors text-center"
+                    className="inline-block px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center"
                   >
-                    WhatsApp Now
+                    Request Quote
                   </Link>
                 </div>
 
-                {/* Mini stats */}
-                <div className="mt-10 grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl border border-sky-200/50 bg-sky-50 p-4 text-center shadow-sm">
-                    <p className="text-2xl font-bold text-primary">250ml+</p>
-                    <p className="text-xs text-muted-foreground mt-1">Events</p>
+                {/* Mini stats - FIXED ALIGNMENT & MADE SMALLER */}
+                <div className="mt-10 grid grid-cols-3 gap-2.5">
+                  <div className="rounded-xl border border-sky-200/50 bg-sky-50 p-3 text-center shadow-sm flex flex-col items-center justify-center">
+                    <p className="text-xl font-bold text-primary">250ml</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">Events</p>
                   </div>
 
-                  <div className="rounded-2xl border border-sky-200/50 bg-sky-50 p-4 text-center shadow-sm">
-                    <p className="text-2xl font-bold text-primary">500ml</p>
-                    <p className="text-xs text-muted-foreground mt-1">Popular</p>
+                  <div className="rounded-xl border border-sky-200/50 bg-sky-50 p-3 text-center shadow-sm flex flex-col items-center justify-center">
+                    <p className="text-xl font-bold text-primary">500ml</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">Popular</p>
                   </div>
 
-                  <div className="rounded-2xl border border-sky-200/50 bg-sky-50 p-4 text-center shadow-sm">
-                    <p className="text-2xl font-bold text-primary">1L</p>
-                    <p className="text-xs text-muted-foreground mt-1">Premium</p>
+                  <div className="rounded-xl border border-sky-200/50 bg-sky-50 p-3 text-center shadow-sm flex flex-col items-center justify-center">
+                    <p className="text-xl font-bold text-primary">1L</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">Premium</p>
                   </div>
                 </div>
               </div>
@@ -154,21 +147,15 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/quote"
-                    className="w-full sm:w-auto px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:bg-accent/90 transition-colors text-center"
-                  >
-                    Get Quote
-                  </Link>
-
+                {/* UPDATED: Only Get Quote button */}
+                <div className="mt-6">
                   <Link
                     href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20bottles.%20Please%20share%20details."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-5 py-3 rounded-xl border border-sky-200 font-semibold text-primary hover:bg-sky-50 transition-colors text-center"
+                    className="block w-full px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:bg-accent/90 transition-colors text-center"
                   >
-                    Ask Pricing
+                    Get Quote
                   </Link>
                 </div>
               </div>
@@ -287,27 +274,19 @@ export default function AboutPage() {
                     <div>
                       <h3 className="text-2xl font-bold text-primary heading-font">Want pricing for your requirement?</h3>
                       <p className="text-muted-foreground mt-2">
-                        Send bottle size + quantity and we’ll share the rate card on WhatsApp.
+                        Send bottle size + quantity and we'll share the rate card on WhatsApp.
                       </p>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Link
-                        href="/quote"
-                        className="px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center"
-                      >
-                        Request Quote
-                      </Link>
-
-                      <Link
-                        href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20details%20for%20250ml%2C%20500ml%20and%201L%20bottles.%20Please%20share%20rate%20card."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-7 py-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors text-center"
-                      >
-                        WhatsApp Pricing
-                      </Link>
-                    </div>
+                    {/* UPDATED: Only Request Quote button */}
+                    <Link
+                      href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20details%20for%20250ml%2C%20500ml%20and%201L%20bottles.%20Please%20share%20rate%20card."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center whitespace-nowrap"
+                    >
+                      Request Quote
+                    </Link>
                   </div>
                 </div>
               </ScrollReveal>

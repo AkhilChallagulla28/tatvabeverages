@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from "react"
 
 export function useScrollAnimate<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null)
+  const ref = useRef<T>(null!)
+
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const node = ref.current
-    if (!node) return
+    if (!ref.current) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,11 +20,9 @@ export function useScrollAnimate<T extends HTMLElement>() {
       { threshold: 0.12 }
     )
 
-    observer.observe(node)
+    observer.observe(ref.current)
 
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [])
 
   return { ref, isVisible }

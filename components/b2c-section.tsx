@@ -24,7 +24,7 @@ const events = [
   { name: "Cradle Ceremony", icon: Baby },
   { name: "Birthdays", icon: Cake },
   { name: "Bachelor Party", icon: Glasses },
-  { name: "Housewarming", icon: Home },
+  { name: "House  warming", icon: Home },
   { name: "Business Openings", icon: Store },
   { name: "Corporate Events", icon: Trophy },
   { name: "DJ / Music Nights", icon: Music },
@@ -57,54 +57,59 @@ export function B2CSection() {
     <section
       ref={ref}
       id="b2c"
-      className={`py-16 bg-background scroll-animate ${isVisible ? "visible" : ""}`}
+      className={`py-10 md:py-16 bg-background scroll-animate ${
+        isVisible ? "visible" : ""
+      }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
+        
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-serif">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 md:mb-6 font-serif">
             B2C Solutions
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Every occasion and celebration in life — we cater personalized water bottles.
           </p>
         </div>
 
-        {/* Events Grid (4 per row) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        {/* Events Grid - FIXED VERSION */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto">
           {events.map((item) => {
             const Icon = item.icon
             return (
               <div
                 key={item.name}
-                className="rounded-2xl border border-sky-200/60 bg-white shadow-sm p-5 hover:shadow-md hover:-translate-y-[2px] transition-all"
+                className="rounded-2xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-5 hover:shadow-md hover:-translate-y-[2px] transition-all flex items-center gap-3 md:gap-4 h-[90px] md:h-auto"
               >
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-sky-100 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-sky-700" />
-                  </div>
-
-                  <p className="text-base font-semibold text-primary leading-snug">
-                    {item.name}
-                  </p>
+                {/* Icon - Fixed size container */}
+                <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                  <Icon className="h-5 w-5 md:h-6 md:w-6 text-sky-700" />
                 </div>
+
+                {/* Text - Allows wrapping */}
+                <p className="text-sm md:text-base font-semibold text-primary leading-snug flex-1">
+                  {item.name}
+                </p>
               </div>
             )
           })}
         </div>
 
         {/* Final Line */}
-        {/* Final Line */}
-<div className="mt-10 text-center">
-  <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-    We serve clients across India with a{" "}
-    <span className="font-semibold text-[#00a0dc]">7-day turnaround,</span>{" "}
-    ensuring your custom bottles arrive fresh and ready for{" "}
-    <span className="font-semibold text-[#00a0dc]">Your Big Day.</span>
-  </p>
-</div>
-
+        <div className="mt-8 md:mt-10 text-center">
+          <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            We serve clients across India with a{" "}
+            <span className="font-semibold text-[#00a0dc]">
+              7-day turnaround,
+            </span>{" "}
+            ensuring your custom bottles arrive fresh and ready for{" "}
+            <span className="font-semibold text-[#00a0dc]">
+              Your Big Day.
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   )
