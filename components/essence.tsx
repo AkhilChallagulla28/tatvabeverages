@@ -94,6 +94,18 @@ export function Essence() {
               </Link>
             </div>
           </div>
+          
+          {/* Mobile Bottle */}
+<div className="mt-10 flex justify-center lg:hidden">
+  <Image
+    src="/images/tatva-bottle-mockup.png"
+    alt="Tatva custom-labeled packaged drinking water bottle"
+    width={220}
+    height={340}
+    className="object-contain drop-shadow-xl"
+    priority
+  />
+</div>
 
           {/* RIGHT BOTTLE MOCKUP */}
           <div className="flex justify-center lg:justify-end">
