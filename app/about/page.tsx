@@ -354,7 +354,7 @@ export default function AboutPage() {
 
         <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
          <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
- Advanced Purification Process
+ Reliable Distribution
 </div>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             We ensure timely delivery and scalable supply across business segments. 
