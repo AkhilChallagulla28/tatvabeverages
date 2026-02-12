@@ -13,7 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export function Contact() {
-const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
+  const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -36,10 +36,8 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
         },
         body: JSON.stringify({
           access_key: "f7d22dbb-8245-46ee-924d-7d878d77a21a",
-
           subject: "New Lead - Tatva Beverages Contact Form",
           from_name: "Tatva Beverages Website",
-
           name: formData.name,
           company: formData.company,
           email: formData.email,
@@ -61,20 +59,18 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
         })
       } else {
         alert("Something went wrong ❌ Please try again or WhatsApp us.")
-        console.log("Web3Forms error:", data)
       }
     } catch (error) {
       alert("Network error ❌ Please try again or WhatsApp us.")
-      console.log("Submit error:", error)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-<section id="contact" className="py-12 bg-gradient-to-b from-background to-sky-50/40">
-
+    <section id="contact" className="py-12 bg-gradient-to-b from-background to-sky-50/40">
       <div className="container mx-auto px-6">
+
         {/* Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
@@ -91,10 +87,14 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
         </div>
 
         <div
-        ref={ref}
-        className={`grid lg:grid-cols-3 gap-10 max-w-6xl mx-auto scroll-animate ${isVisible ? "visible" : ""}`}>
+          ref={ref}
+          className={`grid lg:grid-cols-3 gap-10 max-w-6xl mx-auto scroll-animate ${isVisible ? "visible" : ""}`}
+        >
+
           {/* Contact Info */}
           <div className="space-y-6">
+
+            {/* Email */}
             <Card className="border border-sky-200/60 shadow-sm rounded-3xl">
               <CardHeader>
                 <div className="h-14 w-14 rounded-2xl bg-sky-100 flex items-center justify-center mb-4">
@@ -105,10 +105,15 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
               <CardContent>
                 <CardDescription className="text-base text-muted-foreground">
                   tatvabeverages2025@gmail.com
+                  <br />
+                  <span className="text-sm">
+                    For bulk orders, custom labels & distributor inquiries.
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>
 
+            {/* Phone */}
             <Card className="border border-sky-200/60 shadow-sm rounded-3xl">
               <CardHeader>
                 <div className="h-14 w-14 rounded-2xl bg-sky-100 flex items-center justify-center mb-4">
@@ -119,6 +124,10 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
               <CardContent>
                 <CardDescription className="text-base text-muted-foreground">
                   +91 9505454855
+                  <br />
+                  <span className="text-sm">
+                    Monday – Saturday | 9:00 AM – 7:00 PM
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>
@@ -150,7 +159,19 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </CardContent>
+
+              <CardContent>
+                <div className="text-sm text-muted-foreground leading-relaxed">
+                  <p>
+                    Available Bottle Sizes: <span className="font-medium text-primary">250ml, 500ml, 1L</span>
+                  </p>
+                  <p className="mt-2">
+                    Service Areas: Hyderabad, Telangana and bulk dispatch across India.
+                  </p>
+                </div>
+              </CardContent>
             </Card>
+
           </div>
 
           {/* Contact Form */}
@@ -169,46 +190,24 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                    />
+                    <Input id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="company">Company Name</Label>
-                    <Input
-                      id="company"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      required
-                    />
+                    <Input id="company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} required />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                    />
+                    <Input id="email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      required
-                    />
+                    <Input id="phone" type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required />
                   </div>
                 </div>
 
@@ -228,8 +227,29 @@ const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
+
+              {/* Premium Authority Section */}
+<div className="mt-20 max-w-6xl mx-auto text-center">
+
+  <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-5 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+    Why Choose Tatva
+  </div>
+
+  <h3 className="mt-6 text-3xl md:text-4xl font-bold text-primary heading-font">
+    Trusted Packaged Drinking Water Manufacturer
+  </h3>
+
+  <p className="mt-6 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+   Built for bulk. Designed for branding. Engineered for consistency. Tatva Beverages supports businesses that demand quality without operational friction.
+  </p>
+
+</div>
+
+
+
             </CardContent>
           </Card>
+
         </div>
       </div>
     </section>
