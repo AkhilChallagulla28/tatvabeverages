@@ -4,6 +4,9 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tatvabeverages.com"),
+  alternates: {
+  canonical: "https://tatvabeverages.com",
+},
 
   title: {
     default:
