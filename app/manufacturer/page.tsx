@@ -4,9 +4,9 @@ import { Footer } from "@/components/footer"
 import { ShieldCheck, Factory, MapPin, Award } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Packaged Drinking Water Manufacturer in Hyderabad",
+  title: "Manufacturing Partner | Tatva Beverages",
   description:
-    "Tatva Beverages is a premium packaged drinking water manufacturer in Hyderabad offering bulk supply and private label custom bottles across India.",
+    "Bhanu Agro Foods is the trusted manufacturing partner of Tatva Beverages, ensuring ISO-certified production and FSSAI compliant packaged drinking water.",
   alternates: {
     canonical: "https://tatvabeverages.com/manufacturer",
   },
