@@ -30,7 +30,7 @@ export function FloatingBottle() {
   }, [])
 
   return (
-    <div className="fixed right-8 top-[10vh] z-50 pointer-events-none hidden lg:block">
+    <div className="hidden lg:block fixed right-10 top-[15vh] z-40 pointer-events-none">
       <div
         style={{
           transform,
