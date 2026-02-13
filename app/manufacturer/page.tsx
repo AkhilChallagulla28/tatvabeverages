@@ -1,6 +1,16 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ShieldCheck, Factory, MapPin, Award } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Packaged Drinking Water Manufacturer in Hyderabad",
+  description:
+    "Tatva Beverages is a premium packaged drinking water manufacturer in Hyderabad offering bulk supply and private label custom bottles across India.",
+  alternates: {
+    canonical: "https://tatvabeverages.com/manufacturer",
+  },
+}
 
 export default function ManufacturerPage() {
   return (
