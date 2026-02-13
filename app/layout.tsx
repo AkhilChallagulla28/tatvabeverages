@@ -18,13 +18,12 @@ export const metadata: Metadata = {
   },
 
   title: {
-    default:
-      "Tatva Beverages | Packaged Drinking Water Manufacturer & Private Label Supplier",
+    default: "Tatva Beverages - Premium Packaged Drinking Water Hyderabad",
     template: "%s | Tatva Beverages",
   },
 
   description:
-    "Tatva Beverages is a premium packaged drinking water manufacturer offering bulk supply and private-label custom branded bottles for hotels, corporates, events, and distributors across India.",
+    "Premium packaged drinking water manufacturer in Hyderabad, Telangana. Bulk supply and private label custom branded bottles.",
 
   keywords: [
     "Packaged drinking water manufacturer",
@@ -36,10 +35,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title:
-      "Tatva Beverages | Premium Packaged Drinking Water Manufacturer",
+    title: "Tatva Beverages - Premium Packaged Drinking Water",
     description:
-      "Bulk packaged drinking water supply and private-label custom branded water bottles for businesses, hotels and large-scale events.",
+      "Bulk supply and private label packaged drinking water manufacturer based in Hyderabad.",
     url: "https://tatvabeverages.com",
     siteName: "Tatva Beverages",
     images: [
@@ -74,53 +72,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Tatva Beverages",
+    url: "https://tatvabeverages.com",
+    telephone: "+91 9505454855",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hyderabad",
+      addressRegion: "Telangana",
+      addressCountry: "IN",
+    },
+    areaServed: "India",
+  };
+
   return (
     <html lang="en">
       <head>
-        {/* Structured Data - Organization */}
-        <Script
-          id="organization-schema"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Tatva Beverages",
-              url: "https://tatvabeverages.com",
-              logo:
-                "https://tatvabeverages.com/images/tatva-bottle-mockup.png",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+91-9505454855",
-                contactType: "customer service",
-                areaServed: "IN",
-                availableLanguage: "English",
-              },
-            }),
-          }}
-        />
-
-        {/* Structured Data - Local Business */}
-        <Script
-          id="localbusiness-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Tatva Beverages",
-              image:
-                "https://tatvabeverages.com/images/tatva-bottle-mockup.png",
-              "@id": "https://tatvabeverages.com",
-              url: "https://tatvabeverages.com",
-              telephone: "+91-9505454855",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "IN",
-              },
-            }),
+            __html: JSON.stringify(organizationJsonLd),
           }}
         />
       </head>
