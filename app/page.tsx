@@ -14,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export default function Home() {
   const faqs = [
@@ -67,44 +68,60 @@ export default function Home() {
       <Navigation />
       <FloatingBottle />
       <main className="min-h-screen pt-20">
-        <Essence />
-        <About />
-        <WhyChooseTatva />
-        <PurificationSection />
-        <B2BSection />
-        <B2CSection />
-        <Products />
+        <ScrollReveal>
+          <Essence />
+        </ScrollReveal>
+        <ScrollReveal>
+          <About />
+        </ScrollReveal>
+        <ScrollReveal>
+          <WhyChooseTatva />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PurificationSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <B2BSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <B2CSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Products />
+        </ScrollReveal>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
-        <section id="faq" className="py-24 bg-sky-50/50">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary heading-font mb-10 text-center">
-              Frequently Asked Questions
-            </h2>
-            <Accordion
-              type="single"
-              collapsible
-              className="space-y-4"
-            >
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={faq.question}
-                  value={`item-${index + 1}`}
-                  className="border border-sky-100 bg-white/80 rounded-3xl shadow-sm hover:bg-sky-50/80 transition-colors"
-                >
-                  <AccordionTrigger className="px-6 text-base md:text-lg text-slate-900">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 text-slate-700 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
+        <ScrollReveal>
+          <section id="faq" className="py-24 bg-sky-50/50">
+            <div className="container mx-auto px-6 max-w-4xl">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary heading-font mb-10 text-center">
+                Frequently Asked Questions
+              </h2>
+              <Accordion
+                type="single"
+                collapsible
+                className="space-y-4"
+              >
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={faq.question}
+                    value={`item-${index + 1}`}
+                    className="border border-sky-100 bg-white/80 rounded-3xl shadow-sm hover:bg-sky-50/80 transition-colors"
+                  >
+                    <AccordionTrigger className="px-6 text-base md:text-lg text-slate-900">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 text-slate-700 leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </section>
+        </ScrollReveal>
         <Footer />
       </main>
     </>
