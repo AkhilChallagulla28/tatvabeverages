@@ -6,9 +6,13 @@ import { ShieldCheck, Factory, MapPin, Award } from "lucide-react"
 export const metadata: Metadata = {
   title: "Manufacturing Partner | Tatva Beverages",
   description:
-    "Bhanu Agro Foods is the trusted manufacturing partner of Tatva Beverages, ensuring ISO-certified production and FSSAI compliant packaged drinking water.",
+    "Trusted manufacturing partner ensuring ISO-certified and FSSAI compliant packaged drinking water production.",
   alternates: {
     canonical: "https://tatvabeverages.com/manufacturer",
+  },
+  robots: {
+    index: false,
+    follow: true,
   },
 }
 
