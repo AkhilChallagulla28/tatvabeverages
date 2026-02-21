@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Navigation />
       <FloatingBottle />
 
-      <main className="pt-24">
+      <main className="pt-[80px]">
         {/* HERO */}
         <section className="relative overflow-hidden min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-b from-sky-50 via-background to-muted/30">
           {/* background glow */}

@@ -2,72 +2,120 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/b2b", label: "B2B" },
+  { href: "/b2c", label: "B2C" },
+  { href: "/contact", label: "Contact" },
+]
 
 export function ContactHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Main nav - solid white */}
-      <nav className="bg-white border-b border-slate-200 shadow-sm">
+      <nav className="bg-white/95 backdrop-blur-xl border-b border-slate-200/60 shadow-sm">
         <div className="site-container">
-          <div className="flex items-center justify-between h-[70px]">
-            <Link href="/" className="flex items-center text-slate-900">
-              <Image
-                src="/images/tatva-logo.png"
-                alt="Tatva Beverages Logo"
-                width={280}
-                height={80}
-                priority
-                className="h-[50px] w-auto object-contain"
-              />
-            </Link>
+          {/* Main row: 3 zones */}
+          <div className="flex items-center h-[80px]">
 
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="font-medium text-slate-600 hover:text-primary transition-colors">
-                Home
+            {/* LEFT — Logo */}
+            <div className="flex-shrink-0 w-[160px]">
+              <Link href="/" className="inline-flex items-center">
+                <Image
+                  src="/images/tatva-logo.png"
+                  alt="Tatva Beverages Logo"
+                  width={240}
+                  height={80}
+                  priority
+                  className="h-[52px] w-auto object-contain"
+                />
               </Link>
-              <Link href="/about" className="font-medium text-slate-600 hover:text-primary transition-colors">
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                className="font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg"
-              >
-                Contact
-              </Link>
-              <Button asChild>
-                <Link href="/contact">Get a Quote</Link>
-              </Button>
             </div>
 
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-slate-900"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* CENTER — Nav links */}
+            <div className="hidden md:flex flex-1 items-center justify-center">
+              <div className="flex items-center gap-1">
+                {navLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`
+                      relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                      ${isActive(href)
+                        ? "bg-sky-100/80 text-sky-800"
+                        : "text-slate-600 hover:text-primary hover:bg-slate-100/70"
+                      }
+                    `}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT — Get Quote block button */}
+            <div className="hidden md:flex flex-shrink-0 w-[160px] justify-end">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              >
+                Get Quote →
+              </Link>
+            </div>
+
+            {/* MOBILE — hamburger */}
+            <div className="flex md:hidden flex-1 justify-end">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-slate-700 hover:text-primary transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+
           </div>
 
+          {/* MOBILE MENU */}
           {mobileMenuOpen && (
-            <div className="md:hidden pb-4 flex flex-col gap-4">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="font-medium text-slate-700">
-                Home
-              </Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="font-medium text-slate-700">
-                About Us
-              </Link>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="font-medium text-slate-700">
-                Contact
-              </Link>
-              <Button asChild className="w-full">
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Get a Quote
+            <div className="md:hidden border-t border-slate-100 py-4 flex flex-col gap-1">
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`
+                    px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200
+                    ${isActive(href)
+                      ? "bg-sky-100/80 text-sky-800"
+                      : "text-slate-700 hover:bg-slate-100/70 hover:text-primary"
+                    }
+                  `}
+                >
+                  {label}
                 </Link>
-              </Button>
+              ))}
+              <div className="pt-3 mt-1 border-t border-slate-100">
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-3 text-sm font-semibold text-primary hover:text-sky-700 transition-colors"
+                >
+                  Get Quote →
+                </Link>
+              </div>
             </div>
           )}
         </div>

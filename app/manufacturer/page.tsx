@@ -19,9 +19,9 @@ export default function ManufacturerPage() {
     <>
       <Navigation />
 
-      <main className="pt-24">
+      <main className="pt-[80px]">
         {/* HERO */}
-        <section className="section-py bg-gradient-to-b from-sky-50 via-background to-white">
+        <section className="hero-py bg-gradient-to-b from-sky-50 via-background to-white">
           <div className="site-container-narrow text-center">
             {/* Label */}
             <div

@@ -2,73 +2,119 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/b2b", label: "B2B" },
+  { href: "/b2c", label: "B2C" },
+  { href: "/contact", label: "Contact" },
+]
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname.startsWith(href)
+  }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/30 border-b border-white/40 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-slate-200/60 shadow-sm">
       <div className="site-container">
-        <div className="flex items-center justify-between h-[90px]">
+        {/* Main row: 3 zones */}
+        <div className="flex items-center h-[80px]">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center text-slate-900">
-            <Image
-              src="/images/tatva-logo.png"
-              alt="Tatva Beverages Logo"
-              width={300}
-              height={100}
-              priority
-              className="h-[60px] w-auto object-contain"
-            />
-
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
-              Home
+          {/* LEFT — Logo (fixed width to anchor centering) */}
+          <div className="flex-shrink-0 w-[160px]">
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/images/tatva-logo.png"
+                alt="Tatva Beverages Logo"
+                width={240}
+                height={80}
+                priority
+                className="h-[52px] w-auto object-contain"
+              />
             </Link>
-            <Link href="/about" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
-              About Us
-            </Link>
-            <Link href="/contact" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
-              Contact
-            </Link>
-            <Button asChild>
-              <Link href="/contact">Get a Quote</Link>
-            </Button>
           </div>
 
-          {/* Mobile Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-slate-900"
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* CENTER — Nav links (absolutely centered via flex-1 + mx-auto) */}
+          <div className="hidden md:flex flex-1 items-center justify-center">
+            <div className="flex items-center gap-1">
+              {navLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`
+                    relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                    ${isActive(href)
+                      ? "bg-sky-100/80 text-sky-800"
+                      : "text-slate-600 hover:text-primary hover:bg-slate-100/70"
+                    }
+                  `}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT — Get Quote block button (fixed width, right-aligned) */}
+          <div className="hidden md:flex flex-shrink-0 w-[160px] justify-end">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+            >
+              Get Quote →
+            </Link>
+          </div>
+
+          {/* MOBILE — hamburger (right side) */}
+          <div className="flex md:hidden flex-1 justify-end">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-slate-700 hover:text-primary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE MENU — drops below */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 flex flex-col gap-4 text-slate-900">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="font-medium">
-              Home
-            </Link>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="font-medium">
-              About Us
-            </Link>
-            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="font-medium">
-              Contact
-            </Link>
-            <Button asChild className="w-full">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Get a Quote
+          <div className="md:hidden border-t border-slate-100 py-4 flex flex-col gap-1">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`
+                  px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200
+                  ${isActive(href)
+                    ? "bg-sky-100/80 text-sky-800"
+                    : "text-slate-700 hover:bg-slate-100/70 hover:text-primary"
+                  }
+                `}
+              >
+                {label}
               </Link>
-            </Button>
+            ))}
+            <div className="pt-3 mt-1 border-t border-slate-100">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-sm font-semibold text-primary hover:text-sky-700 transition-colors"
+              >
+                Get Quote →
+              </Link>
+            </div>
           </div>
         )}
       </div>

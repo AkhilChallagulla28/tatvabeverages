@@ -18,12 +18,12 @@ export default function ContactPage() {
       <ContactHeader />
       <FloatingBottle />
 
-      <main className="pt-[70px]" style={{ background: "#F8FAFC" }}>
+      <main className="pt-[80px]" style={{ background: "#F8FAFC" }}>
         {/* Hero Section */}
         <ContactHero />
 
         {/* Contact Info + Form Section */}
-        <section className="section-py" style={{ background: "#F8FAFC" }}>
+        <section style={{ paddingTop: "48px", paddingBottom: "100px", background: "#F8FAFC" }}>
           <ContactSection />
           <ScrollToTop />
         </section>

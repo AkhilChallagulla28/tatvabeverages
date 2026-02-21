@@ -11,7 +11,7 @@ export function ContactHero() {
   }, [])
 
   return (
-    <section className="contact-hero-section section-py-sm">
+    <section className="contact-hero-section" style={{ paddingTop: "32px", paddingBottom: "24px" }}>
       <div className="site-container">
         <div
           className="contact-hero-container"
