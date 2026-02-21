@@ -13,7 +13,7 @@ export function ContactHeader() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Main nav - solid white */}
       <nav className="bg-white border-b border-slate-200 shadow-sm">
-        <div className="container mx-auto px-6">
+        <div className="site-container">
           <div className="flex items-center justify-between h-[70px]">
             <Link href="/" className="flex items-center text-slate-900">
               <Image

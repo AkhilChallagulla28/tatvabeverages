@@ -11,19 +11,19 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/30 border-b border-white/40 shadow-lg">
-  <div className="container mx-auto px-6">
-    <div className="flex items-center justify-between h-[90px]">
-      
-      {/* Logo */}
-      <Link href="/" className="flex items-center text-slate-900">
-        <Image
-          src="/images/tatva-logo.png"
-          alt="Tatva Beverages Logo"
-          width={300}
-          height={100}
-          priority
-          className="h-[60px] w-auto object-contain"
-        />
+      <div className="site-container">
+        <div className="flex items-center justify-between h-[90px]">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center text-slate-900">
+            <Image
+              src="/images/tatva-logo.png"
+              alt="Tatva Beverages Logo"
+              width={300}
+              height={100}
+              priority
+              className="h-[60px] w-auto object-contain"
+            />
 
           </Link>
 

@@ -23,8 +23,8 @@ export function Products() {
   const { ref: cardsRef, visible: cardsVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section id="products" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="products" className="section-py bg-background">
+      <div className="site-container">
         {/* Heading */}
         <div
           ref={headRef}
@@ -35,7 +35,7 @@ export function Products() {
           }}
           className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary heading-font">
+          <h2 className="h2-scale font-bold text-primary heading-font">
             Available Bottle Sizes
           </h2>
           <p className="mt-3 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -52,7 +52,7 @@ export function Products() {
             transition: "opacity 0.75s ease, transform 0.75s ease",
             transitionDelay: "0.12s",
           }}
-          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid md:grid-cols-3 gap-8"
         >
           {products.map((item) => (
             <Card

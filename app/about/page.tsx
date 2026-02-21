@@ -34,8 +34,8 @@ export default function AboutPage() {
             <div className="absolute left-[-200px] bottom-[-200px] h-[560px] w-[560px] rounded-full bg-cyan-400/15 blur-3xl" />
           </div>
 
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+          <div className="site-container py-12">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
               {/* LEFT — staggered mount animation matching ContactHero */}
               <div className="rounded-3xl border border-sky-200/50 bg-background/70 backdrop-blur-md shadow-sm p-8 md:p-10">
                 {/* Label */}
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     transition: "opacity 0.7s ease, transform 0.7s ease",
                     transitionDelay: "0.22s",
                   }}
-                  className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font tracking-tight"
+                  className="mt-4 h1-scale font-bold text-primary heading-font"
                 >
                   About Tatva Beverages
                 </h1>
@@ -243,10 +243,10 @@ export default function AboutPage() {
         </section>
 
         {/* MORE INFO */}
-        <section id="more" className="py-10 bg-gradient-to-b from-background to-sky-50/40">
-          <div className="container mx-auto px-6">
+        <section id="more" className="section-py-sm bg-gradient-to-b from-background to-sky-50/40">
+          <div className="site-container">
             <ScrollReveal>
-              <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="rounded-3xl border border-sky-200/60 bg-white shadow-sm p-8">
                   <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
                     WHO WE ARE
@@ -278,16 +278,16 @@ export default function AboutPage() {
         </section>
 
         {/* CAPABILITIES + CTA */}
-        <section className="py-12 bg-sky-50/60">
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto">
+        <section className="section-py-sm bg-sky-50/60">
+          <div className="site-container">
+            <div>
               <ScrollReveal>
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
                     OUR CAPABILITY
                   </div>
 
-                  <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
+                  <h2 className="mt-4 h2-scale font-bold text-primary heading-font">
                     Built for bulk supply &amp; premium branding
                   </h2>
 
@@ -368,9 +368,9 @@ export default function AboutPage() {
         </section>
 
         {/* MANUFACTURING AUTHORITY */}
-        <section className="py-20 bg-gradient-to-b from-white to-sky-50/40">
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto">
+        <section className="section-py bg-gradient-to-b from-white to-sky-50/40">
+          <div className="site-container">
+            <div>
 
               <ScrollReveal>
                 <div className="text-center">
@@ -378,7 +378,7 @@ export default function AboutPage() {
                     MANUFACTURING AUTHORITY
                   </div>
 
-                  <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
+                  <h2 className="mt-4 h2-scale font-bold text-primary heading-font">
                     Packaged Drinking Water Manufacturer
                   </h2>
 

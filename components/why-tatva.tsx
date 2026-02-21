@@ -33,11 +33,8 @@ export function WhyChooseTatva() {
   const { ref: rightRef, visible: rightVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section
-      id="why-tatva"
-      className="py-20 bg-gradient-to-b from-white via-sky-50/40 to-white"
-    >
-      <div className="container mx-auto px-6">
+    <section id="why-tatva" className="section-py bg-gradient-to-b from-white via-sky-50/40 to-white">
+      <div className="site-container">
         {/* Header */}
         <div
           ref={headRef}
@@ -52,7 +49,7 @@ export function WhyChooseTatva() {
             TRUST + QUALITY
           </div>
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-bold text-primary heading-font">
+          <h2 className="mt-5 h2-scale font-bold text-primary heading-font">
             Why brands choose Tatva
           </h2>
 
@@ -63,7 +60,7 @@ export function WhyChooseTatva() {
         </div>
 
         {/* Main Layout */}
-        <div className="mt-14 grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div className="mt-14 grid lg:grid-cols-2 gap-10 items-center">
           {/* LEFT - clean list */}
           <div
             ref={leftRef}

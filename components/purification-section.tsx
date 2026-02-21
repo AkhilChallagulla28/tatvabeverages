@@ -8,8 +8,8 @@ export function PurificationSection() {
   const { ref: imgRef, visible: imgVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section id="purification" className="py-20 bg-gradient-to-b from-background to-sky-50/40">
-      <div className="container mx-auto px-6">
+    <section id="purification" className="section-py bg-gradient-to-b from-background to-sky-50/40">
+      <div className="site-container">
         {/* Heading */}
         <div
           ref={headRef}
@@ -24,7 +24,7 @@ export function PurificationSection() {
             PROCESS
           </div>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
+          <h2 className="mt-4 h2-scale font-bold text-primary heading-font">
             Advanced 8-Stage Multi-Barrier Purification Process
           </h2>
 
@@ -42,7 +42,7 @@ export function PurificationSection() {
             transition: "opacity 0.75s ease, transform 0.75s ease",
             transitionDelay: "0.12s",
           }}
-          className="max-w-6xl mx-auto rounded-3xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-8"
+          className="max-w-5xl mx-auto rounded-3xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-8"
         >
           <div className="relative w-full aspect-[16/9]">
             <Image

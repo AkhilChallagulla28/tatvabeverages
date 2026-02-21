@@ -8,9 +8,9 @@ export function About() {
   const { ref: rightRef, visible: rightVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section id="about" className="py-16 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section id="about" className="section-py bg-background">
+      <div className="site-container">
+        <div>
           {/* Heading */}
           <div
             ref={headRef}
@@ -21,7 +21,7 @@ export function About() {
             }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-primary font-serif">
+            <h2 className="h2-scale font-bold text-primary font-serif">
               About Tatva
             </h2>
 

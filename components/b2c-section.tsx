@@ -36,8 +36,8 @@ export function B2CSection() {
   const { ref: gridRef, visible: gridVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section id="b2c" className="py-10 md:py-16 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="b2c" className="section-py-sm bg-background">
+      <div className="site-container">
 
         {/* Header */}
         <div
@@ -49,7 +49,7 @@ export function B2CSection() {
           }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 md:mb-6 font-serif">
+          <h2 className="h2-scale font-bold text-primary mb-4 md:mb-6 font-serif">
             B2C Solutions
           </h2>
 
@@ -67,7 +67,7 @@ export function B2CSection() {
             transition: "opacity 0.75s ease, transform 0.75s ease",
             transitionDelay: "0.12s",
           }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 max-w-6xl mx-auto"
         >
           {events.map((item) => {
             const Icon = item.icon

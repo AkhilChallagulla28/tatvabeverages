@@ -38,15 +38,14 @@ export function B2BSection() {
     <section
       ref={ref}
       id="b2b"
-      className={`py-10 md:py-16 bg-muted fade-section ${
-        visible ? "visible" : ""
-      }`}
+      className={`section-py-sm bg-muted fade-section ${visible ? "visible" : ""
+        }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        
+      <div className="site-container">
+
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="fade-child text-3xl md:text-5xl font-bold text-primary mb-4 md:mb-6 font-serif">
+          <h2 className="fade-child h2-scale font-bold text-primary mb-4 md:mb-6 font-serif">
             B2B Solutions
           </h2>
 
@@ -56,7 +55,7 @@ export function B2BSection() {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {categories.map((item, index) => {
             const Icon = item.icon
 

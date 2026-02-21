@@ -259,7 +259,7 @@ export function ContactSection() {
   }
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+    <div className="site-container">
       <div className="contact-grid">
         {/* ── LEFT COLUMN ──────────────────────────────────────────── */}
         <div
@@ -467,7 +467,7 @@ export function ContactSection() {
         .contact-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 72px;
+          gap: 56px;
           align-items: start;
         }
         .form-row-grid {
@@ -483,7 +483,7 @@ export function ContactSection() {
           transform: translateY(-2px);
           box-shadow: 0 8px 32px rgba(11,44,61,0.30) !important;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
           .contact-grid {
             grid-template-columns: 1fr;
             gap: 48px;

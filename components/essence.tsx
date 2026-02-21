@@ -26,8 +26,8 @@ export function Essence() {
         <div className="absolute left-[-200px] bottom-[-200px] h-[560px] w-[560px] rounded-full bg-cyan-400/10 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 py-12">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      <div className="site-container py-12">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* LEFT CONTENT — staggered mount animation matching ContactHero */}
           <div className="text-center lg:text-left">
             {/* Label */}
@@ -52,7 +52,7 @@ export function Essence() {
                 transition: "opacity 0.7s ease, transform 0.7s ease",
                 transitionDelay: "0.22s",
               }}
-              className="mt-5 text-5xl md:text-6xl lg:text-7xl font-bold text-primary font-serif tracking-tight"
+              className="mt-5 h1-scale font-bold text-primary font-serif tracking-tight"
             >
               Essence in Every Drop
             </h1>

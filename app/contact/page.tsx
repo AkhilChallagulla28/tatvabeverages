@@ -20,19 +20,17 @@ export default function ContactPage() {
 
       <main className="pt-[70px]" style={{ background: "#F8FAFC" }}>
         {/* Hero Section */}
-        <div style={{ paddingBottom: "0" }}>
-          <ContactHero />
-        </div>
+        <ContactHero />
 
         {/* Contact Info + Form Section */}
-        <section style={{ paddingTop: "100px", paddingBottom: "100px", background: "#F8FAFC" }}>
+        <section className="section-py" style={{ background: "#F8FAFC" }}>
           <ContactSection />
           <ScrollToTop />
         </section>
 
         {/* Map Section */}
-        <section style={{ paddingBottom: "100px", background: "#F8FAFC" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+        <section className="section-py-sm" style={{ background: "#F8FAFC", paddingTop: 0 }}>
+          <div className="site-container">
             {/* Section label */}
             <div style={{ marginBottom: "32px" }}>
               <p style={{ fontSize: "12px", fontWeight: 600, color: "#1e6fb5", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'Inter', sans-serif", marginBottom: "8px" }}>

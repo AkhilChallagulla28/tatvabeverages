@@ -94,9 +94,9 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
         <ScrollReveal>
-          <section id="faq" className="py-24 bg-sky-50/50">
-            <div className="container mx-auto px-6 max-w-4xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary heading-font mb-10 text-center">
+          <section id="faq" className="section-py bg-sky-50/50">
+            <div className="site-container-narrow">
+              <h2 className="h2-scale font-bold text-primary heading-font mb-10 text-center">
                 Frequently Asked Questions
               </h2>
               <Accordion

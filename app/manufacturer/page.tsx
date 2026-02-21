@@ -21,8 +21,8 @@ export default function ManufacturerPage() {
 
       <main className="pt-24">
         {/* HERO */}
-        <section className="py-20 bg-gradient-to-b from-sky-50 via-background to-white">
-          <div className="container mx-auto px-6 text-center max-w-4xl">
+        <section className="section-py bg-gradient-to-b from-sky-50 via-background to-white">
+          <div className="site-container-narrow text-center">
             {/* Label */}
             <div
               style={{
@@ -44,7 +44,7 @@ export default function ManufacturerPage() {
                 transition: "opacity 0.7s ease, transform 0.7s ease",
                 transitionDelay: "0.22s",
               }}
-              className="mt-6 text-4xl md:text-5xl font-bold text-primary heading-font"
+              className="mt-6 h1-scale font-bold text-primary heading-font"
             >
               Trusted Manufacturing Excellence
             </h1>
@@ -68,9 +68,8 @@ export default function ManufacturerPage() {
           </div>
         </section>
 
-        {/* DETAILS SECTION */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6 max-w-6xl">
+        <section className="section-py bg-white">
+          <div className="site-container">
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
 
@@ -152,7 +151,7 @@ export default function ManufacturerPage() {
         {/* CLOSING STATEMENT */}
         <ScrollReveal>
           <section className="py-16 bg-gradient-to-r from-sky-50 via-white to-sky-50">
-            <div className="container mx-auto px-6 text-center max-w-3xl">
+            <div className="site-container-narrow text-center">
               <ShieldCheck className="mx-auto h-10 w-10 text-sky-700 mb-6" />
 
               <h2 className="text-3xl font-bold text-primary heading-font">
