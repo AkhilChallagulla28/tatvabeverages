@@ -6,21 +6,27 @@
 :root {
   /* Updated color scheme to match exact brand requirements - Deep Navy Blue (#0B2C3D) primary, Soft Aqua/Teal (#2EC4B6) secondary */
   /* Updated accent and secondary color to #00a0dc brand blue */
-  --background: oklch(1 0 0); /* Pure White */
-  --foreground: oklch(0.18 0.03 240); /* Deep Navy Blue #0B2C3D */
+  --background: oklch(1 0 0);
+  /* Pure White */
+  --foreground: oklch(0.18 0.03 240);
+  /* Deep Navy Blue #0B2C3D */
   --card: oklch(0.99 0 0);
   --card-foreground: oklch(0.18 0.03 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.03 240);
-  --primary: oklch(0.18 0.03 240); /* Deep Navy Blue #0B2C3D */
+  --primary: oklch(0.18 0.03 240);
+  /* Deep Navy Blue #0B2C3D */
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.6 0.2 230); /* #00a0dc Brand Blue */
+  --secondary: oklch(0.6 0.2 230);
+  /* #00a0dc Brand Blue */
   --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.96 0.005 240);
   --muted-foreground: oklch(0.48 0.02 240);
-  --accent: oklch(0.6 0.2 230); /* #00a0dc Brand Blue */
+  --accent: oklch(0.6 0.2 230);
+  /* #00a0dc Brand Blue */
   --accent-foreground: oklch(0.99 0 0);
-  --silver: oklch(0.78 0.005 240); /* Soft Silver/Grey #C7CDD1 */
+  --silver: oklch(0.78 0.005 240);
+  /* Soft Silver/Grey #C7CDD1 */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.92 0.005 240);
@@ -116,6 +122,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -133,11 +140,13 @@
 }
 
 @layer utilities {
-  /* Enhanced scroll animation with more visible effect: opacity and translate 20px for stronger entrance */
+
+  /* Canonical scroll animation — matches Contact page exactly */
   .scroll-animate {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateY(36px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+    will-change: opacity, transform;
   }
 
   .scroll-animate.visible {
@@ -156,12 +165,12 @@
   }
 }
 
-/* ===== Fade In Up Animation ===== */
+/* ===== Fade In Up Animation — matches Contact page exactly ===== */
 
 .fade-section {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(36px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
   will-change: opacity, transform;
 }
 
@@ -170,10 +179,70 @@
   transform: translateY(0);
 }
 
-/* Slightly smoother on larger screens */
-@media (min-width: 768px) {
-  .fade-section {
-    transform: translateY(60px);
+/* ===== Fade Child — staggered children inside fade-section ===== */
+/* Uses the same canonical timing as the Contact page */
+.fade-child {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: opacity, transform;
+}
+
+.fade-section.visible .fade-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — matching Contact page delay increments */
+.fade-section.visible .fade-child.delay-0 {
+  transition-delay: 0s;
+}
+
+.fade-section.visible .fade-child.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.fade-section.visible .fade-child.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.fade-section.visible .fade-child.delay-300 {
+  transition-delay: 0.3s;
+}
+
+.fade-section.visible .fade-child.delay-400 {
+  transition-delay: 0.4s;
+}
+
+.fade-section.visible .fade-child.delay-500 {
+  transition-delay: 0.5s;
+}
+
+/* ===== Contact Page — Premium Overrides ===== */
+
+/* Hero section responsive padding */
+.contact-hero-section {
+  padding-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .contact-hero-section .contact-hero-container {
+    border-radius: 16px !important;
+    min-height: 420px !important;
+  }
+
+  .contact-hero-section .contact-hero-container>div:last-child {
+    padding: 48px 28px !important;
   }
 }
 
+@media (max-width: 480px) {
+  .contact-hero-section .contact-hero-container {
+    border-radius: 14px !important;
+    min-height: 380px !important;
+  }
+
+  .contact-hero-section .contact-hero-container>div:last-child {
+    padding: 40px 20px !important;
+  }
+}

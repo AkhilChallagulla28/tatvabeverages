@@ -1,11 +1,24 @@
+"use client"
+
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { FloatingBottle } from "@/components/floating-bottle"
 import { Footer } from "@/components/footer"
 import { BadgeCheck, ShieldCheck, FlaskConical, Package, Sparkles, Truck } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { useState, useEffect } from "react"
+import { useScrollFade } from "@/hooks/useScrollFade"
 
 export default function AboutPage() {
+  // Mount-based staggered animation for hero (matches ContactHero exactly)
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const { ref: rightRef, visible: rightVisible } = useScrollFade<HTMLDivElement>()
+
   return (
     <>
       <Navigation />
@@ -23,24 +36,59 @@ export default function AboutPage() {
 
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-              {/* LEFT */}
+              {/* LEFT — staggered mount animation matching ContactHero */}
               <div className="rounded-3xl border border-sky-200/50 bg-background/70 backdrop-blur-md shadow-sm p-8 md:p-10">
-                <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
+                {/* Label */}
+                <div
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(16px)",
+                    transition: "opacity 0.6s ease, transform 0.6s ease",
+                    transitionDelay: "0.1s",
+                  }}
+                  className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700"
+                >
                   ABOUT TATVA
                 </div>
 
-                <h1 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font tracking-tight">
+                {/* H1 */}
+                <h1
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity 0.7s ease, transform 0.7s ease",
+                    transitionDelay: "0.22s",
+                  }}
+                  className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font tracking-tight"
+                >
                   About Tatva Beverages
                 </h1>
 
-                <p className="mt-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
+                {/* Subtext */}
+                <p
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity 0.7s ease, transform 0.7s ease",
+                    transitionDelay: "0.38s",
+                  }}
+                  className="mt-4 text-lg md:text-xl text-muted-foreground leading-relaxed"
+                >
                   We manufacture premium packaged drinking water and supply{" "}
                   <span className="font-semibold text-foreground">custom-labeled bottles</span> for brands, events, and
                   businesses.
                 </p>
 
                 {/* Trust chips */}
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity 0.7s ease, transform 0.7s ease",
+                    transitionDelay: "0.52s",
+                  }}
+                  className="mt-6 flex flex-wrap gap-3"
+                >
                   <span className="inline-flex items-center gap-2 rounded-full border border-sky-200/60 bg-sky-100/60 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
                     <ShieldCheck className="h-4 w-4 text-sky-700" />
                     FSSAI Licensed
@@ -62,8 +110,16 @@ export default function AboutPage() {
                   </span>
                 </div>
 
-                {/* CTA - UPDATED: Only Request Quote button that redirects to WhatsApp */}
-                <div className="mt-8">
+                {/* CTA */}
+                <div
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity 0.7s ease, transform 0.7s ease",
+                    transitionDelay: "0.66s",
+                  }}
+                  className="mt-8"
+                >
                   <Link
                     href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20pricing%20and%20MOQ."
                     target="_blank"
@@ -74,8 +130,16 @@ export default function AboutPage() {
                   </Link>
                 </div>
 
-                {/* Mini stats - FIXED ALIGNMENT & MADE SMALLER */}
-                <div className="mt-10 grid grid-cols-3 gap-2.5">
+                {/* Mini stats */}
+                <div
+                  style={{
+                    opacity: mounted ? 1 : 0,
+                    transform: mounted ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity 0.7s ease, transform 0.7s ease",
+                    transitionDelay: "0.78s",
+                  }}
+                  className="mt-10 grid grid-cols-3 gap-2.5"
+                >
                   <div className="rounded-xl border border-sky-200/50 bg-sky-50 p-3 text-center shadow-sm flex flex-col items-center justify-center">
                     <p className="text-xl font-bold text-primary">250ml</p>
                     <p className="text-[10px] text-muted-foreground mt-0.5">Events</p>
@@ -93,8 +157,17 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* RIGHT (SHORTER + WHITE) */}
-              <div className="rounded-3xl border border-sky-200/50 bg-white shadow-sm p-6 md:p-8">
+              {/* RIGHT — scroll-based animation */}
+              <div
+                ref={rightRef}
+                style={{
+                  opacity: rightVisible ? 1 : 0,
+                  transform: rightVisible ? "translateY(0)" : "translateY(36px)",
+                  transition: "opacity 0.75s ease, transform 0.75s ease",
+                  transitionDelay: "0.18s",
+                }}
+                className="rounded-3xl border border-sky-200/50 bg-white shadow-sm p-6 md:p-8"
+              >
                 <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
                   PRIVATE LABEL
                 </div>
@@ -147,7 +220,6 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* UPDATED: Only Get Quote button */}
                 <div className="mt-6">
                   <Link
                     href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20bottles.%20Please%20share%20details."
@@ -209,22 +281,24 @@ export default function AboutPage() {
         <section className="py-12 bg-sky-50/60">
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
-                  OUR CAPABILITY
-                </div>
-
-                <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
-                  Built for bulk supply & premium branding
-                </h2>
-
-                <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-                  From event orders to repeat corporate supply, we support businesses with consistent quality and
-                  professional delivery.
-                </p>
-              </div>
-
               <ScrollReveal>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
+                    OUR CAPABILITY
+                  </div>
+
+                  <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
+                    Built for bulk supply &amp; premium branding
+                  </h2>
+
+                  <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+                    From event orders to repeat corporate supply, we support businesses with consistent quality and
+                    professional delivery.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay="0.1s">
                 <div className="mt-10 grid md:grid-cols-3 gap-6">
                   <div className="rounded-3xl border border-sky-200/60 bg-white p-7 shadow-sm">
                     <h3 className="font-bold text-primary text-lg">Bulk Orders</h3>
@@ -249,7 +323,7 @@ export default function AboutPage() {
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal>
+              <ScrollReveal delay="0.1s">
                 <div className="mt-10 rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm">
                   <p className="text-sm font-semibold text-sky-700 tracking-widest uppercase text-center">
                     Industries We Serve
@@ -268,17 +342,16 @@ export default function AboutPage() {
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal>
+              <ScrollReveal delay="0.1s">
                 <div className="mt-10 rounded-3xl border border-sky-200/60 bg-gradient-to-r from-sky-50 via-white to-sky-50 p-8 shadow-sm">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                       <h3 className="text-2xl font-bold text-primary heading-font">Want pricing for your requirement?</h3>
                       <p className="text-muted-foreground mt-2">
-                        Send bottle size + quantity and we'll share the rate card on WhatsApp.
+                        Send bottle size + quantity and we&apos;ll share the rate card on WhatsApp.
                       </p>
                     </div>
 
-                    {/* UPDATED: Only Request Quote button */}
                     <Link
                       href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20details%20for%20250ml%2C%20500ml%20and%201L%20bottles.%20Please%20share%20rate%20card."
                       target="_blank"
@@ -293,98 +366,100 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-             <section className="py-20 bg-gradient-to-b from-white to-sky-50/40">
-  <div className="container mx-auto px-6">
-    <div className="max-w-6xl mx-auto">
 
-      {/* Heading */}
-      <div className="text-center">
-        <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
-          MANUFACTURING AUTHORITY
-        </div>
+        {/* MANUFACTURING AUTHORITY */}
+        <section className="py-20 bg-gradient-to-b from-white to-sky-50/40">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
 
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
-          Packaged Drinking Water Manufacturer
-        </h2>
+              <ScrollReveal>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
+                    MANUFACTURING AUTHORITY
+                  </div>
 
-        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-          Premium private label water bottle supplier built for bulk supply, hospitality, events and corporate distribution.
-        </p>
-      </div>
+                  <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary heading-font">
+                    Packaged Drinking Water Manufacturer
+                  </h2>
 
-      {/* Cards */}
-      <div className="mt-14 grid md:grid-cols-2 gap-8">
+                  <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                    Premium private label water bottle supplier built for bulk supply, hospitality, events and corporate distribution.
+                  </p>
+                </div>
+              </ScrollReveal>
 
-        <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
-          <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
-  Bulk Supply Capability
-</div>
+              <ScrollReveal delay="0.1s">
+                <div className="mt-14 grid md:grid-cols-2 gap-8">
 
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Tatva Beverages specializes in bulk packaged drinking water supply for hotels, 
-            corporate offices, event planners, banquet halls and retail distributors. 
-            We support both recurring business orders and large event requirements with 
-            consistent quality and professional dispatch systems.
-          </p>
-        </div>
+                  <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+                      Bulk Supply Capability
+                    </div>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      Tatva Beverages specializes in bulk packaged drinking water supply for hotels,
+                      corporate offices, event planners, banquet halls and retail distributors.
+                      We support both recurring business orders and large event requirements with
+                      consistent quality and professional dispatch systems.
+                    </p>
+                  </div>
 
-        <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
-          <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
-  Private Label Water Bottles
-</div>
+                  <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+                      Private Label Water Bottles
+                    </div>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      Our private label service enables brands to customize 250ml, 500ml and 1L
+                      packaged drinking water bottles with their logo and branding.
+                      Ideal for weddings, conferences, corporate events and premium hospitality.
+                    </p>
+                  </div>
 
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our private label service enables brands to customize 250ml, 500ml and 1L 
-            packaged drinking water bottles with their logo and branding. 
-            Ideal for weddings, conferences, corporate events and premium hospitality.
-          </p>
-        </div>
+                  <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+                      Advanced Purification Process
+                    </div>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      Our manufacturing process includes multi-stage filtration using RO, UV and ozone treatment
+                      to ensure safe, hygienic and refreshing drinking water.
+                      Every batch undergoes strict quality control before sealed packaging.
+                    </p>
+                  </div>
 
-        <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
-          <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
- Advanced Purification Process
-</div>
+                  <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+                      Reliable Distribution
+                    </div>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      We ensure timely delivery and scalable supply across business segments.
+                      Whether you require branded bottles for a single event or ongoing office supply,
+                      Tatva Beverages maintains dependable turnaround and professional coordination.
+                    </p>
+                  </div>
 
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our manufacturing process includes multi-stage filtration using RO, UV and ozone treatment 
-            to ensure safe, hygienic and refreshing drinking water. 
-            Every batch undergoes strict quality control before sealed packaging.
-          </p>
-        </div>
+                </div>
+              </ScrollReveal>
 
-        <div className="group rounded-3xl border border-sky-200/60 bg-white p-8 shadow-sm hover:shadow-md transition-all duration-300">
-         <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
- Reliable Distribution
-</div>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            We ensure timely delivery and scalable supply across business segments. 
-            Whether you require branded bottles for a single event or ongoing office supply, 
-            Tatva Beverages maintains dependable turnaround and professional coordination.
-          </p>
-        </div>
+              {/* Bottom CTA */}
+              <ScrollReveal delay="0.1s">
+                <div className="mt-16 text-center">
+                  <p className="text-muted-foreground">
+                    Looking for a trusted packaged drinking water manufacturer for your business?
+                  </p>
 
-      </div>
+                  <Link
+                    href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20details%20about%20bulk%20packaged%20drinking%20water%20supply."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-6 px-8 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-all duration-300"
+                  >
+                    Discuss Your Requirement
+                  </Link>
+                </div>
+              </ScrollReveal>
 
-      {/* Bottom CTA */}
-      <div className="mt-16 text-center">
-        <p className="text-muted-foreground">
-          Looking for a trusted packaged drinking water manufacturer for your business?
-        </p>
-
-        <Link
-          href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20details%20about%20bulk%20packaged%20drinking%20water%20supply."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-6 px-8 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-all duration-300"
-        >
-          Discuss Your Requirement
-        </Link>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </main>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
+import { useScrollFade } from "@/hooks/useScrollFade"
 import {
   HeartHandshake,
   Sparkles,
@@ -32,39 +32,23 @@ const events = [
 ]
 
 export function B2CSection() {
-  const ref = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (ref.current) observer.observe(ref.current)
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current)
-    }
-  }, [isVisible])
+  const { ref: headRef, visible: headVisible } = useScrollFade<HTMLDivElement>()
+  const { ref: gridRef, visible: gridVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section
-      ref={ref}
-      id="b2c"
-      className={`py-10 md:py-16 bg-background scroll-animate ${
-        isVisible ? "visible" : ""
-      }`}
-    >
+    <section id="b2c" className="py-10 md:py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        
+
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div
+          ref={headRef}
+          style={{
+            opacity: headVisible ? 1 : 0,
+            transform: headVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+          }}
+          className="text-center mb-8 md:mb-12"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 md:mb-6 font-serif">
             B2C Solutions
           </h2>
@@ -74,8 +58,17 @@ export function B2CSection() {
           </p>
         </div>
 
-        {/* Events Grid - FIXED VERSION */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto">
+        {/* Events Grid */}
+        <div
+          ref={gridRef}
+          style={{
+            opacity: gridVisible ? 1 : 0,
+            transform: gridVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+            transitionDelay: "0.12s",
+          }}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto"
+        >
           {events.map((item) => {
             const Icon = item.icon
             return (
@@ -83,12 +76,10 @@ export function B2CSection() {
                 key={item.name}
                 className="rounded-2xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-5 hover:shadow-md hover:-translate-y-[2px] transition-all flex items-center gap-3 md:gap-4 h-[90px] md:h-auto"
               >
-                {/* Icon - Fixed size container */}
                 <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-sky-100 flex items-center justify-center flex-shrink-0">
                   <Icon className="h-5 w-5 md:h-6 md:w-6 text-sky-700" />
                 </div>
 
-                {/* Text - Allows wrapping */}
                 <p className="text-sm md:text-base font-semibold text-primary leading-snug flex-1">
                   {item.name}
                 </p>

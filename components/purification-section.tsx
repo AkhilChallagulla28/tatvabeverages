@@ -1,41 +1,25 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useScrollFade } from "@/hooks/useScrollFade"
 
 export function PurificationSection() {
-  const ref = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (ref.current) observer.observe(ref.current)
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current)
-    }
-  }, [isVisible])
+  const { ref: headRef, visible: headVisible } = useScrollFade<HTMLDivElement>()
+  const { ref: imgRef, visible: imgVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section
-      ref={ref}
-      id="purification"
-      className={`py-20 bg-gradient-to-b from-background to-sky-50/40 scroll-animate ${
-        isVisible ? "visible" : ""
-      }`}
-    >
+    <section id="purification" className="py-20 bg-gradient-to-b from-background to-sky-50/40">
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <div className="text-center mb-12">
+        <div
+          ref={headRef}
+          style={{
+            opacity: headVisible ? 1 : 0,
+            transform: headVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+          }}
+          className="text-center mb-12"
+        >
           <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
             PROCESS
           </div>
@@ -45,12 +29,21 @@ export function PurificationSection() {
           </h2>
 
           <p className="mt-3 text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
-  Our multi-barrier approach doesn't just filter water — it transforms it. Through eight rigorous purification stages including RO, UV, and Ozone technology, we eliminate bacteria, viruses, heavy metals, and dissolved impurities. Every stage serves a purpose. Every barrier adds protection. Every bottle delivers water you can trust completely.
-</p>
+            Our multi-barrier approach doesn&apos;t just filter water — it transforms it. Through eight rigorous purification stages including RO, UV, and Ozone technology, we eliminate bacteria, viruses, heavy metals, and dissolved impurities. Every stage serves a purpose. Every barrier adds protection. Every bottle delivers water you can trust completely.
+          </p>
         </div>
 
         {/* Image */}
-        <div className="max-w-6xl mx-auto rounded-3xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-8">
+        <div
+          ref={imgRef}
+          style={{
+            opacity: imgVisible ? 1 : 0,
+            transform: imgVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+            transitionDelay: "0.12s",
+          }}
+          className="max-w-6xl mx-auto rounded-3xl border border-sky-200/60 bg-white shadow-sm p-4 md:p-8"
+        >
           <div className="relative w-full aspect-[16/9]">
             <Image
               src="/images/purification-process.png"

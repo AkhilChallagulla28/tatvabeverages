@@ -1,68 +1,70 @@
-import Link from "next/link"
-import { Navigation } from "@/components/navigation"
+import { ContactHeader } from "@/components/contact-header"
 import { FloatingBottle } from "@/components/floating-bottle"
-import { Contact } from "@/components/contact"
+import { ContactHero } from "@/components/contact-hero"
+import { ContactSection } from "@/components/contact-section"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import { Footer } from "@/components/footer"
-import { PhoneCall, MessageCircle } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Contact Us | Tatva Beverages",
+  description:
+    "Partner with Tatva Beverages — Hyderabad's premier private label packaged drinking water manufacturer. Get a bulk quote for hotels, restaurants, events and corporates.",
+}
 
 export default function ContactPage() {
   return (
     <>
-      <Navigation />
+      <ContactHeader />
       <FloatingBottle />
 
-      {/* ✅ add padding top so heading never hides behind navbar */}
-      <main className="pt-24">
-        {/* ✅ Premium hero like Home/About */}
-        <section className="relative overflow-hidden min-h-[calc(65vh-80px)] flex items-center bg-gradient-to-b from-sky-50 via-background to-muted/30">
-          {/* background glow */}
-          <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute left-1/2 top-[-140px] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-sky-400/20 blur-3xl" />
-            <div className="absolute right-[-180px] top-[120px] h-[460px] w-[460px] rounded-full bg-blue-500/15 blur-3xl" />
-            <div className="absolute left-[-200px] bottom-[-200px] h-[520px] w-[520px] rounded-full bg-cyan-400/15 blur-3xl" />
-          </div>
+      <main className="pt-[70px]" style={{ background: "#F8FAFC" }}>
+        {/* Hero Section */}
+        <div style={{ paddingBottom: "0" }}>
+          <ContactHero />
+        </div>
 
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700">
-                CONTACT
-              </div>
-
-              <h1 className="mt-5 text-5xl md:text-6xl lg:text-7xl font-bold text-primary heading-font tracking-tight">
-                Contact Tatva Beverages
-              </h1>
-
-              <p className="mt-4 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Get pricing, MOQ details and delivery support for custom-labeled packaged drinking water.
-              </p>
-
-              {/* ✅ CTA Buttons */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20details."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-7 py-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </Link>
-
-                <Link
-                  href="tel:+919505454855"
-                  className="px-7 py-4 border border-sky-200 bg-white text-primary rounded-xl font-semibold hover:bg-sky-50 transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  <PhoneCall className="h-5 w-5" />
-                  Call Now
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* Contact Info + Form Section */}
+        <section style={{ paddingTop: "100px", paddingBottom: "100px", background: "#F8FAFC" }}>
+          <ContactSection />
+          <ScrollToTop />
         </section>
 
-        {/* ✅ Contact component section */}
-        <section className="py-10 bg-background">
-          <Contact />
+        {/* Map Section */}
+        <section style={{ paddingBottom: "100px", background: "#F8FAFC" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+            {/* Section label */}
+            <div style={{ marginBottom: "32px" }}>
+              <p style={{ fontSize: "12px", fontWeight: 600, color: "#1e6fb5", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'Inter', sans-serif", marginBottom: "8px" }}>
+                Our Location
+              </p>
+              <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 700, color: "#0B2C3D", fontFamily: "'Inter', sans-serif", letterSpacing: "-0.02em" }}>
+                Find Us in Hyderabad
+              </h2>
+            </div>
+
+            {/* Map container */}
+            <div
+              style={{
+                borderRadius: "20px",
+                overflow: "hidden",
+                boxShadow: "0 8px 40px rgba(11,44,61,0.08)",
+                border: "1px solid #e0e8f0",
+                filter: "grayscale(35%)",
+              }}
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7370434710438!2d78.4544282!3d17.424402600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97609d728075%3A0xaf4ea327843d02d!2sTatva%20Beverages!5e0!3m2!1sen!2sin!4v1769251097676!5m2!1sen!2sin"
+                width="100%"
+                height="440"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Tatva Beverages Location – Hyderabad"
+              />
+            </div>
+          </div>
         </section>
 
         <Footer />

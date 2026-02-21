@@ -10,12 +10,12 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/30 border-b border-white/40 shadow-lg">
   <div className="container mx-auto px-6">
     <div className="flex items-center justify-between h-[90px]">
       
       {/* Logo */}
-      <Link href="/" className="flex items-center">
+      <Link href="/" className="flex items-center text-slate-900">
         <Image
           src="/images/tatva-logo.png"
           alt="Tatva Beverages Logo"
@@ -29,13 +29,13 @@ export function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="font-medium hover:text-blue-600 transition-colors">
+            <Link href="/" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link href="/about" className="font-medium hover:text-blue-600 transition-colors">
+            <Link href="/about" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
               About Us
             </Link>
-            <Link href="/contact" className="font-medium hover:text-blue-600 transition-colors">
+            <Link href="/contact" className="font-medium text-slate-900 hover:text-blue-600 transition-colors">
               Contact
             </Link>
             <Button asChild>
@@ -46,7 +46,7 @@ export function Navigation() {
           {/* Mobile Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden"
+            className="md:hidden text-slate-900"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -54,14 +54,14 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 flex flex-col gap-4">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+          <div className="md:hidden mt-4 flex flex-col gap-4 text-slate-900">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="font-medium">
               Home
             </Link>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="font-medium">
               About Us
             </Link>
-            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="font-medium">
               Contact
             </Link>
             <Button asChild className="w-full">

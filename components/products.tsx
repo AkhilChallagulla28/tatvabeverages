@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useScrollFade } from "@/hooks/useScrollFade"
 import { Card, CardContent } from "@/components/ui/card"
 
 const products = [
@@ -19,36 +19,22 @@ const products = [
 ]
 
 export function Products() {
-  const ref = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (ref.current) observer.observe(ref.current)
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current)
-    }
-  }, [isVisible])
+  const { ref: headRef, visible: headVisible } = useScrollFade<HTMLDivElement>()
+  const { ref: cardsRef, visible: cardsVisible } = useScrollFade<HTMLDivElement>()
 
   return (
-    <section
-      ref={ref}
-      id="products"
-      className={`py-20 bg-background scroll-animate ${isVisible ? "visible" : ""}`}
-    >
+    <section id="products" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div
+          ref={headRef}
+          style={{
+            opacity: headVisible ? 1 : 0,
+            transform: headVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+          }}
+          className="text-center mb-14"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary heading-font">
             Available Bottle Sizes
           </h2>
@@ -58,7 +44,16 @@ export function Products() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div
+          ref={cardsRef}
+          style={{
+            opacity: cardsVisible ? 1 : 0,
+            transform: cardsVisible ? "translateY(0)" : "translateY(36px)",
+            transition: "opacity 0.75s ease, transform 0.75s ease",
+            transitionDelay: "0.12s",
+          }}
+          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
           {products.map((item) => (
             <Card
               key={item.size}
