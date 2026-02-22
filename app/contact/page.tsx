@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   title: "Contact Us | Tatva Beverages",
   description:
     "Partner with Tatva Beverages — Hyderabad's premier private label packaged drinking water manufacturer. Get a bulk quote for hotels, restaurants, events and corporates.",
+  alternates: {
+    canonical: "https://tatvabeverages.com/contact",
+  },
+  openGraph: {
+    url: "https://tatvabeverages.com/contact",
+  },
 }
 
 export default function ContactPage() {

@@ -2,11 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://tatvabeverages.com"),
+// ─── Canonical domain (non-www only) ─────────────────────────────────────────
+// This is the single source of truth used across metadataBase, canonical tags,
+// Open Graph urls, Twitter cards, and structured data.
+// The www → non-www 301 redirect is enforced in next.config.mjs.
+const SITE_URL = "https://tatvabeverages.com";
 
+export const metadata: Metadata = {
+  // metadataBase resolves relative image/URL paths to the canonical domain.
+  // It must NOT contain "www." — this is the authoritative non-www origin.
+  metadataBase: new URL(SITE_URL),
+
+  // Root-level canonical for the homepage.
+  // Individual page files (about, b2b, b2c, contact, manufacturer) each
+  // export their own `alternates.canonical` to override this.
   alternates: {
-    canonical: "https://tatvabeverages.com",
+    canonical: SITE_URL,
   },
 
   icons: {
@@ -38,7 +49,7 @@ export const metadata: Metadata = {
     title: "Tatva Beverages - Premium Packaged Drinking Water",
     description:
       "Bulk supply and private label packaged drinking water manufacturer based in Hyderabad.",
-    url: "https://tatvabeverages.com",
+    url: SITE_URL,
     siteName: "Tatva Beverages",
     images: [
       {
@@ -76,7 +87,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Tatva Beverages",
-    url: "https://tatvabeverages.com",
+    url: SITE_URL,
     telephone: "+91 9505454855",
     address: {
       "@type": "PostalAddress",
@@ -102,19 +113,19 @@ export default function RootLayout({
         {children}
 
         {/* Google Analytics 4 */}
-<Script
-  src="https://www.googletagmanager.com/gtag/js?id=G-WY8K8V4X46"
-  strategy="afterInteractive"
-/>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WY8K8V4X46"
+          strategy="afterInteractive"
+        />
 
-<Script id="google-analytics" strategy="afterInteractive">
-  {`
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-WY8K8V4X46');
   `}
-</Script>
+        </Script>
       </body>
     </html>
   );
