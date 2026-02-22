@@ -325,7 +325,7 @@ export function ContactSection() {
             }}
           >
             <IconWhatsApp />
-            Chat on WhatsApp
+            Contact us
           </Link>
         </div>
 

@@ -10,7 +10,7 @@ const nextConfig = {
   // ─── www → non-www permanent redirect (301) ───────────────────────────────
   // Catches ALL paths: www.tatvabeverages.com/* → tatvabeverages.com/*
   // Uses `permanent: true` which Next.js maps to HTTP 301.
-  // `has` ensures this rule only fires when the host contains "www.",
+  // `has` ensures this rule only fires when the host is "www.tatvabeverages.com",
   // preventing any redirect loop on the canonical domain.
   async redirects() {
     return [

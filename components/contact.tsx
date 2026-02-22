@@ -13,7 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export function Contact() {
-  const { ref, isVisible } = useScrollAnimate<HTMLDivElement>()
+  const { ref, visible } = useScrollAnimate<HTMLDivElement>()
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -88,7 +88,7 @@ export function Contact() {
 
         <div
           ref={ref}
-          className={`grid lg:grid-cols-3 gap-10 max-w-6xl mx-auto scroll-animate ${isVisible ? "visible" : ""}`}
+          className={`grid lg:grid-cols-3 gap-10 max-w-6xl mx-auto scroll-animate ${visible ? "visible" : ""}`}
         >
 
           {/* Contact Info */}
@@ -229,21 +229,21 @@ export function Contact() {
               </form>
 
               {/* Premium Authority Section */}
-<div className="mt-20 max-w-6xl mx-auto text-center">
+              <div className="mt-20 max-w-6xl mx-auto text-center">
 
-  <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-5 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
-    Why Choose Tatva
-  </div>
+                <div className="inline-flex items-center justify-center rounded-full bg-sky-100 px-5 py-2 text-xs font-semibold tracking-widest text-sky-700 uppercase">
+                  Why Choose Tatva
+                </div>
 
-  <h3 className="mt-6 text-3xl md:text-4xl font-bold text-primary heading-font">
-    Trusted Packaged Drinking Water Manufacturer
-  </h3>
+                <h3 className="mt-6 text-3xl md:text-4xl font-bold text-primary heading-font">
+                  Trusted Packaged Drinking Water Manufacturer
+                </h3>
 
-  <p className="mt-6 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-   Built for bulk. Designed for branding. Engineered for consistency. Tatva Beverages supports businesses that demand quality without operational friction.
-  </p>
+                <p className="mt-6 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  Built for bulk. Designed for branding. Engineered for consistency. Tatva Beverages supports businesses that demand quality without operational friction.
+                </p>
 
-</div>
+              </div>
 
 
 

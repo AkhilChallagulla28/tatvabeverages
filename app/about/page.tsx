@@ -121,9 +121,7 @@ export default function AboutPage() {
                   className="mt-8"
                 >
                   <Link
-                    href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20pricing%20and%20MOQ."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="inline-block px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center"
                   >
                     Request Quote
@@ -222,9 +220,7 @@ export default function AboutPage() {
 
                 <div className="mt-6">
                   <Link
-                    href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20bottles.%20Please%20share%20details."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="block w-full px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:bg-accent/90 transition-colors text-center"
                   >
                     Get Quote
@@ -353,9 +349,7 @@ export default function AboutPage() {
                     </div>
 
                     <Link
-                      href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20details%20for%20250ml%2C%20500ml%20and%201L%20bottles.%20Please%20share%20rate%20card."
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/contact"
                       className="px-7 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-center whitespace-nowrap"
                     >
                       Request Quote

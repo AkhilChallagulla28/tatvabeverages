@@ -3,19 +3,18 @@ import "./globals.css";
 import Script from "next/script";
 
 // ─── Canonical domain (non-www only) ─────────────────────────────────────────
-// This is the single source of truth used across metadataBase, canonical tags,
-// Open Graph urls, Twitter cards, and structured data.
+// Single source of truth for metadataBase, canonical tags, OG urls, and JSON-LD.
 // The www → non-www 301 redirect is enforced in next.config.mjs.
 const SITE_URL = "https://tatvabeverages.com";
 
 export const metadata: Metadata = {
   // metadataBase resolves relative image/URL paths to the canonical domain.
-  // It must NOT contain "www." — this is the authoritative non-www origin.
+  // Must NOT contain "www." — this is the authoritative non-www origin.
   metadataBase: new URL(SITE_URL),
 
   // Root-level canonical for the homepage.
-  // Individual page files (about, b2b, b2c, contact, manufacturer) each
-  // export their own `alternates.canonical` to override this.
+  // Sub-pages (about, b2b, b2c, contact, manufacturer, quote) each
+  // export their own alternates.canonical via their route layout.tsx.
   alternates: {
     canonical: SITE_URL,
   },
@@ -65,8 +64,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Tatva Beverages | Private Label Water Bottle Manufacturer",
+    title: "Tatva Beverages | Private Label Water Bottle Manufacturer",
     description:
       "Premium packaged drinking water manufacturer offering bulk supply and custom branded bottles.",
     images: ["/images/tatva-bottle-mockup.png"],

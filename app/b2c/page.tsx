@@ -110,9 +110,7 @@ export default function B2CPage() {
                                     className="mt-8 flex flex-wrap gap-4"
                                 >
                                     <Link
-                                        href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20need%20custom%20label%20bottles%20for%20an%20event.%20Please%20share%20pricing."
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 px-6 py-3.5 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-sm"
                                     >
                                         Order Custom Bottles
@@ -148,7 +146,7 @@ export default function B2CPage() {
                                     <div className="absolute -inset-4 -z-10 rounded-[32px] bg-rose-200/20 blur-3xl" />
 
                                     <Image
-                                        src="/images/tatva-b2c-hero.png"
+                                        src="/images/tatva-b2b-hero.png"
                                         alt="Custom branded water bottles for weddings and celebrations — Tatva Beverages"
                                         width={880}
                                         height={1100}

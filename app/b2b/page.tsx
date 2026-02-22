@@ -78,9 +78,7 @@ export default function B2BPage() {
                                     className="mt-8 flex flex-wrap gap-4"
                                 >
                                     <Link
-                                        href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20custom%20branded%20water%20bottles%20for%20my%20business.%20Please%20share%20pricing%20and%20MOQ."
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 px-6 py-3.5 bg-accent text-white rounded-xl font-semibold hover:bg-accent/90 transition-colors text-sm"
                                     >
                                         Request a Custom Quote
@@ -109,7 +107,7 @@ export default function B2BPage() {
                                     {/* Soft glow backdrop */}
                                     <div className="absolute inset-0 -z-10 rounded-full bg-sky-300/20 blur-3xl scale-125" />
                                     <Image
-                                        src="/images/tatva-b2b-hero.png"
+                                        src="/images/tatva-b2c-hero.png"
                                         alt="Tatva Beverages custom branded private label water bottle — your label here"
                                         width={560}
                                         height={748}
@@ -424,9 +422,7 @@ export default function B2BPage() {
                             </p>
                             <div className="mt-8 flex flex-wrap justify-center gap-4">
                                 <Link
-                                    href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20to%20request%20a%20custom%20quote%20for%20private%20label%20water%20bottles%20for%20my%20business."
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="/contact"
                                     className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors"
                                 >
                                     Request a Custom Quote
