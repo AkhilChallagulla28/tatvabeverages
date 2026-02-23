@@ -301,32 +301,63 @@ export function ContactSection() {
             </InfoBlock>
           </div>
 
-          {/* WhatsApp CTA */}
-          <Link
-            href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20details."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-cta-btn"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              padding: "14px 28px",
-              background: "#25D366",
-              color: "#fff",
-              borderRadius: "12px",
-              fontSize: "14px",
-              fontWeight: 600,
-              textDecoration: "none",
-              fontFamily: "'Inter', sans-serif",
-              letterSpacing: "0.02em",
-              boxShadow: "0 4px 20px rgba(37,211,102,0.25)",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease",
-            }}
-          >
-            <IconWhatsApp />
-            Contact us
-          </Link>
+          {/* CTA buttons row */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
+
+            {/* WhatsApp CTA */}
+            <Link
+              href="https://wa.me/919505454855?text=Hi%20Tatva%20team,%20I%20want%20pricing%20for%20custom%20label%20packaged%20water%20bottles.%20Please%20share%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-cta-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 28px",
+                background: "#25D366",
+                color: "#fff",
+                borderRadius: "12px",
+                fontSize: "14px",
+                fontWeight: 600,
+                textDecoration: "none",
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "0.02em",
+                boxShadow: "0 4px 20px rgba(37,211,102,0.25)",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              }}
+            >
+              <IconWhatsApp />
+              Contact us
+            </Link>
+
+            {/* Schedule a Call — tel: link */}
+            <a
+              href="tel:+919505454855"
+              className="call-cta-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 28px",
+                background: "#fff",
+                color: "#0B2C3D",
+                borderRadius: "12px",
+                fontSize: "14px",
+                fontWeight: 600,
+                textDecoration: "none",
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "0.02em",
+                border: "1.5px solid #d1dae3",
+                boxShadow: "0 2px 12px rgba(11,44,61,0.08)",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+              }}
+            >
+              <IconPhone />
+              Schedule a Call
+            </a>
+
+          </div>
         </div>
 
         {/* ── RIGHT COLUMN – Form Card ──────────────────────────────── */}
@@ -478,6 +509,11 @@ export function ContactSection() {
         .whatsapp-cta-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 28px rgba(37,211,102,0.32) !important;
+        }
+        .call-cta-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 28px rgba(11,44,61,0.14) !important;
+          border-color: #1e6fb5 !important;
         }
         .submit-btn:hover:not(:disabled) {
           transform: translateY(-2px);

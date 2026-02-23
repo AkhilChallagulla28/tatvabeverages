@@ -7,6 +7,7 @@ import { PurificationSection } from "@/components/purification-section"
 import { B2BSection } from "@/components/b2b-section"
 import { B2CSection } from "@/components/b2c-section"
 import { Products } from "@/components/products"
+import { ZincSection } from "@/components/zinc-section"
 import { Footer } from "@/components/footer"
 import {
   Accordion,
@@ -74,6 +75,7 @@ export default function Home() {
         <ScrollReveal>
           <About />
         </ScrollReveal>
+        <ZincSection />
         <ScrollReveal>
           <WhyChooseTatva />
         </ScrollReveal>

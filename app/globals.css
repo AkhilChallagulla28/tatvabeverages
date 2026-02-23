@@ -316,7 +316,7 @@
 /* Uses the same canonical timing as the Contact page */
 .fade-child {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(36px);
   transition: opacity 0.75s ease, transform 0.75s ease;
   will-change: opacity, transform;
 }

@@ -56,7 +56,7 @@ export default function B2CPage() {
                                         transition: "opacity 0.6s ease, transform 0.6s ease",
                                         transitionDelay: "0.1s",
                                     }}
-                                    className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-2 text-xs font-semibold tracking-widest text-rose-700"
+                                    className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold tracking-widest text-sky-700"
                                 >
                                     PERSONALISED WATER BOTTLES
                                 </div>
@@ -239,7 +239,7 @@ export default function B2CPage() {
                 <ScrollReveal>
                     <section className="section-py-sm bg-white border-t border-slate-100">
                         <div className="site-container text-center">
-                            <div className="inline-flex items-center justify-center rounded-full bg-rose-100/80 px-4 py-2 text-xs font-semibold tracking-widest text-rose-700 mb-5">
+                            <div className="inline-flex items-center justify-center rounded-full bg-sky-100 text-sky-700 px-4 py-2 text-xs font-semibold tracking-widest text-rose-700 mb-5">
                                 GET STARTED
                             </div>
                             <h2 className="h2-scale font-bold text-primary heading-font">
