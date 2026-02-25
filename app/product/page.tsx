@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { HowToOrderSection } from "@/components/how-to-order-section"
 import { BottleGallery } from "@/components/bottle-gallery"
 import {
     ChevronRight,
@@ -415,6 +416,7 @@ export default function ProductPage() {
                     </section>
                 </ScrollReveal>
 
+                <HowToOrderSection />
                 <Footer />
             </main>
         </>

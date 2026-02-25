@@ -118,6 +118,6 @@ export function Navigation() {
           </div>
         )}
       </div>
-    </nav>
+    </nav >
   )
 }

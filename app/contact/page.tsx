@@ -4,6 +4,7 @@ import { ContactHero } from "@/components/contact-hero"
 import { ContactSection } from "@/components/contact-section"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Footer } from "@/components/footer"
+import { HowToOrderSection } from "@/components/how-to-order-section"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -71,6 +72,7 @@ export default function ContactPage() {
           </div>
         </section>
 
+        <HowToOrderSection />
         <Footer />
       </main>
     </>

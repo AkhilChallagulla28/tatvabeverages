@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { FloatingBottle } from "@/components/floating-bottle"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { HowToOrderSection } from "@/components/how-to-order-section"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -261,6 +262,7 @@ export default function B2CPage() {
                     </section>
                 </ScrollReveal>
 
+                <HowToOrderSection />
                 <Footer />
             </main>
         </>

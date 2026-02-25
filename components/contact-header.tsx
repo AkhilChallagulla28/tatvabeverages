@@ -9,9 +9,9 @@ import { usePathname } from "next/navigation"
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/product", label: "Products" },
   { href: "/b2b", label: "B2B" },
   { href: "/b2c", label: "B2C" },
-  { href: "/contact", label: "Contact" },
 ]
 
 export function ContactHeader() {
@@ -71,7 +71,7 @@ export function ContactHeader() {
                 href="/contact"
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
               >
-                Get Quote →
+                Contact Us
               </Link>
             </div>
 
@@ -113,7 +113,7 @@ export function ContactHeader() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-3 text-sm font-semibold text-primary hover:text-sky-700 transition-colors"
                 >
-                  Get Quote →
+                  Contact Us
                 </Link>
               </div>
             </div>

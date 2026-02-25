@@ -36,6 +36,9 @@ export function Footer() {
               <Link href="/contact" className="hover:opacity-80 transition-opacity">
                 Contact
               </Link>
+              <Link href="/faq" className="hover:opacity-80 transition-opacity">
+                FAQ
+              </Link>
             </div>
           </div>
 

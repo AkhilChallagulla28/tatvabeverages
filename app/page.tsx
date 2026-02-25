@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { HowToOrderSection } from "@/components/how-to-order-section"
 
 export default function Home() {
   const faqs = [
@@ -124,6 +125,7 @@ export default function Home() {
             </div>
           </section>
         </ScrollReveal>
+        <HowToOrderSection />
         <Footer />
       </main>
     </>
