@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     description:
         "Learn about Tatva Beverages — a premium packaged drinking water manufacturer in Hyderabad offering private label bottling, FSSAI-licensed bulk supply, and BIS-certified products.",
     alternates: {
-        canonical: "https://tatvabeverages.com/about",
+        canonical: "/about",
     },
     openGraph: {
-        url: "https://tatvabeverages.com/about",
+        url: "/about",
     },
 };
 

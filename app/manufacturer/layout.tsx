@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     description:
         "Tatva Beverages is manufactured by M/s Bhanu Agro Foods — an ISO 9001:2015 certified, FSSAI-licensed packaged drinking water facility in Hyderabad, Telangana.",
     alternates: {
-        canonical: "https://tatvabeverages.com/manufacturer",
+        canonical: "/manufacturer",
     },
     openGraph: {
-        url: "https://tatvabeverages.com/manufacturer",
+        url: "/manufacturer",
     },
 };
 

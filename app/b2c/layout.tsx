@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     description:
         "Custom label water bottles for weddings, birthdays, engagements and celebrations in Hyderabad. Make every moment memorable with Tatva Beverages personalised bottled water.",
     alternates: {
-        canonical: "https://tatvabeverages.com/b2c",
+        canonical: "/b2c",
     },
     openGraph: {
-        url: "https://tatvabeverages.com/b2c",
+        url: "/b2c",
     },
 };
 

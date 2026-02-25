@@ -13,10 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   // Root-level canonical for the homepage.
-  // Sub-pages (about, b2b, b2c, contact, manufacturer, quote) each
-  // export their own alternates.canonical via their route layout.tsx.
+  // metadataBase (set above) resolves this relative path to:
+  //   https://tatvabeverages.com/
+  // Sub-pages each export their own relative alternates.canonical.
   alternates: {
-    canonical: SITE_URL,
+    canonical: "/",
   },
 
   icons: {

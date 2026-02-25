@@ -22,13 +22,13 @@ export const metadata: Metadata = {
         "1L table water bottles",
     ],
     alternates: {
-        canonical: "https://tatvabeverages.com/product",
+        canonical: "/product",
     },
     openGraph: {
         title: "Custom Branded Water Bottles | Tatva Beverages",
         description:
             "Premium private label water bottles in 200ml, 250ml, 500ml & 1L. Custom labels, matte/glossy finishes, full-wrap branding for hotels, events & corporate — Hyderabad.",
-        url: "https://tatvabeverages.com/product",
+        url: "/product",
         images: [
             {
                 url: "/images/tatva-bottle-mockup.png",

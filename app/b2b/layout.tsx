@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     description:
         "Custom branded water bottles for businesses across Hyderabad — hotels, restaurants, corporate offices and events. Private label packaged drinking water from Tatva Beverages.",
     alternates: {
-        canonical: "https://tatvabeverages.com/b2b",
+        canonical: "/b2b",
     },
     openGraph: {
-        url: "https://tatvabeverages.com/b2b",
+        url: "/b2b",
     },
 };
 

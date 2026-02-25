@@ -6,10 +6,10 @@ export const metadata: Metadata = {
     description:
         "Request a custom quote for bulk packaged drinking water or private label water bottles from Tatva Beverages, Hyderabad.",
     alternates: {
-        canonical: "https://tatvabeverages.com/quote",
+        canonical: "/quote",
     },
     openGraph: {
-        url: "https://tatvabeverages.com/quote",
+        url: "/quote",
     },
 };
 
