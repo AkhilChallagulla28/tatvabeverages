@@ -5,7 +5,7 @@ import Script from "next/script";
 // ─── Canonical domain (non-www only) ─────────────────────────────────────────
 // Single source of truth for metadataBase, canonical tags, OG urls, and JSON-LD.
 // The www → non-www 301 redirect is enforced in next.config.mjs.
-const SITE_URL = "https://tatvabeverages.com";
+const SITE_URL = "https://tatvabeverages.com/";
 
 export const metadata: Metadata = {
   // metadataBase resolves relative image/URL paths to the canonical domain.
